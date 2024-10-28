@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebApi.Model
 {
-    public class Categoria
+    public class Roles
     {
-        public int Id { get; set; }
+        public int IdRol { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public bool Activo { get; set; }
-        public ICollection<Producto> Productos { get; set; }
+        public ICollection<UsuariosRoles> UsuariosRoles { get; set; }
+        public ICollection<RolesPermisos> RolesPermisos { get; set; }
     }
 }
