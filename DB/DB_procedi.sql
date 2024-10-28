@@ -115,3 +115,40 @@ BEGIN
     INSERT INTO RolesPermisos (IdRol, IdPermiso)
     VALUES (@IdRol, @IdPermiso);
 END;
+GO
+
+-- spActualizarUsuario
+CREATE PROCEDURE spActualizarUsuario
+    @IdUsuario INT,
+    @Username NVARCHAR(50),
+    @Email NVARCHAR(100)
+AS
+BEGIN
+    UPDATE Usuarios
+    SET Username = @Username, Email = @Email
+    WHERE IdUsuario = @IdUsuario;
+END;
+GO
+
+-- EliminarUsuario 
+CREATE PROCEDURE spDeshabilitarUsuario
+    @IdUsuario INT
+AS
+BEGIN
+    UPDATE Usuarios
+    SET Email = NULL, PasswordHash = NULL, FechaCreacion = NULL, UltimoLogin = NULL
+    WHERE IdUsuario = @IdUsuario;
+END;
+GO
+
+-- CambiarContrasena
+CREATE PROCEDURE spCambiarContrasena
+    @IdUsuario INT,
+    @NuevaContrasena NVARCHAR(255)
+AS
+BEGIN
+    UPDATE Usuarios
+    SET PasswordHash = @NuevaContrasena
+    WHERE IdUsuario = @IdUsuario;
+END;
+GO
