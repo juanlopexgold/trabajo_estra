@@ -9,7 +9,7 @@ namespace WebApi.Model
     {
         public int IdUsuario { get; set; }
         public int IdRol { get; set; }
-        public Usuarios Usuario { get; set; }
+        public Usuario Usuario { get; set; }
         public Roles Rol { get; set; }
     }
 }
